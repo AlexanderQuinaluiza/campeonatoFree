@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn2:definitions xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:bpsim="http://www.bpsim.org/schemas/1.0" xmlns:drools="http://www.jboss.org/drools" xmlns:xsi="xsi" id="_tCSx4Ga4ED64ps4FE6RX5Q" targetNamespace="http://www.omg.org/bpmn20" exporter="jBPM Process Modeler" exporterVersion="2.0">
+  <bpmn2:collaboration id="_42789B38-4232-4667-97B8-4A5F9475B96D" name="Default Collaboration">
+    <bpmn2:participant id="_B787E25C-17B8-4A18-A82B-390D64F4B4A2" name="Pool Participant" processRef="_1.campeonato" />
+  </bpmn2:collaboration>
+  <bpmn2:process id="_1.campeonato" name="1. campeonato" processType="Public" isExecutable="true" drools:packageName="com.example" drools:version="1.0" drools:adHoc="false">
+    <bpmn2:laneSet>
+      <bpmn2:lane id="Lane_1owesia" name="Dirigente/Capitán">
+        <bpmn2:flowNodeRef>Activity_1lkpeq0</bpmn2:flowNodeRef>
+      </bpmn2:lane>
+      <bpmn2:lane id="_4D28481A-88F4-4DB0-AC5E-A5A949FF8FB0" name="Organizador">
+        <bpmn2:extensionElements>
+          <drools:metaData name="elementname">
+            <drools:metaValue>Administrador</drools:metaValue>
+          </drools:metaData>
+        </bpmn2:extensionElements>
+        <bpmn2:flowNodeRef>_FB79674A-D5C2-4630-8226-09C55ABC2449</bpmn2:flowNodeRef>
+        <bpmn2:flowNodeRef>Activity_07n3bnr</bpmn2:flowNodeRef>
+        <bpmn2:flowNodeRef>Activity_1a6xse2</bpmn2:flowNodeRef>
+        <bpmn2:flowNodeRef>Activity_1kugnw6</bpmn2:flowNodeRef>
+        <bpmn2:flowNodeRef>Activity_1euuhzy</bpmn2:flowNodeRef>
+      </bpmn2:lane>
+      <bpmn2:lane id="_4F979076-8A69-49BE-92D4-EB5D036D645B" name="Administrador">
+        <bpmn2:extensionElements>
+          <drools:metaData name="elementname">
+            <drools:metaValue>Administrador</drools:metaValue>
+          </drools:metaData>
+        </bpmn2:extensionElements>
+        <bpmn2:flowNodeRef>Activity_1qanhnl</bpmn2:flowNodeRef>
+        <bpmn2:flowNodeRef>Activity_0ae2m10</bpmn2:flowNodeRef>
+        <bpmn2:flowNodeRef>Event_1gsqbqu</bpmn2:flowNodeRef>
+      </bpmn2:lane>
+      <bpmn2:lane id="Lane_0ra1yv2" name="Jugador" />
+    </bpmn2:laneSet>
+    <bpmn2:startEvent id="_FB79674A-D5C2-4630-8226-09C55ABC2449">
+      <bpmn2:outgoing>Flow_1gqggf2</bpmn2:outgoing>
+    </bpmn2:startEvent>
+    <bpmn2:sequenceFlow id="Flow_1gqggf2" sourceRef="_FB79674A-D5C2-4630-8226-09C55ABC2449" targetRef="Activity_07n3bnr" />
+    <bpmn2:scriptTask id="Activity_07n3bnr" name="Ingreso datos final">
+      <bpmn2:incoming>Flow_1gqggf2</bpmn2:incoming>
+      <bpmn2:outgoing>Flow_0eke8vm</bpmn2:outgoing>
+    </bpmn2:scriptTask>
+    <bpmn2:sequenceFlow id="Flow_0eke8vm" sourceRef="Activity_07n3bnr" targetRef="Activity_1a6xse2" />
+    <bpmn2:manualTask id="Activity_1a6xse2" name="Premiación campéon, goleadores">
+      <bpmn2:incoming>Flow_0eke8vm</bpmn2:incoming>
+      <bpmn2:outgoing>Flow_13k5mgz</bpmn2:outgoing>
+    </bpmn2:manualTask>
+    <bpmn2:sequenceFlow id="Flow_13k5mgz" sourceRef="Activity_1a6xse2" targetRef="Activity_1kugnw6" />
+    <bpmn2:userTask id="Activity_1kugnw6" name="Ingreso sancionados finales y haberes incumplidos">
+      <bpmn2:incoming>Flow_13k5mgz</bpmn2:incoming>
+      <bpmn2:outgoing>Flow_18xeitp</bpmn2:outgoing>
+    </bpmn2:userTask>
+    <bpmn2:sequenceFlow id="Flow_18xeitp" sourceRef="Activity_1kugnw6" targetRef="Activity_1euuhzy" />
+    <bpmn2:userTask id="Activity_1euuhzy" name="Solicitud cierre campeonato">
+      <bpmn2:incoming>Flow_18xeitp</bpmn2:incoming>
+      <bpmn2:outgoing>Flow_19yv85r</bpmn2:outgoing>
+    </bpmn2:userTask>
+    <bpmn2:sequenceFlow id="Flow_19yv85r" sourceRef="Activity_1euuhzy" targetRef="Activity_1qanhnl" />
+    <bpmn2:userTask id="Activity_1qanhnl" name="Poner campeonato en modo pasado">
+      <bpmn2:incoming>Flow_19yv85r</bpmn2:incoming>
+      <bpmn2:outgoing>Flow_0zadbzs</bpmn2:outgoing>
+    </bpmn2:userTask>
+    <bpmn2:sequenceFlow id="Flow_0zadbzs" sourceRef="Activity_1qanhnl" targetRef="Activity_0ae2m10" />
+    <bpmn2:userTask id="Activity_0ae2m10" name="Registrar sanciones y haberes incumplidos">
+      <bpmn2:incoming>Flow_0zadbzs</bpmn2:incoming>
+      <bpmn2:outgoing>Flow_07dxfl0</bpmn2:outgoing>
+      <bpmn2:outgoing>Flow_04v9c9e</bpmn2:outgoing>
+    </bpmn2:userTask>
+    <bpmn2:endEvent id="Event_1gsqbqu">
+      <bpmn2:incoming>Flow_07dxfl0</bpmn2:incoming>
+    </bpmn2:endEvent>
+    <bpmn2:sequenceFlow id="Flow_07dxfl0" sourceRef="Activity_0ae2m10" targetRef="Event_1gsqbqu" />
+    <bpmn2:sequenceFlow id="Flow_04v9c9e" sourceRef="Activity_0ae2m10" targetRef="Activity_1lkpeq0" />
+    <bpmn2:userTask id="Activity_1lkpeq0" name="Revisión resultados finales">
+      <bpmn2:incoming>Flow_04v9c9e</bpmn2:incoming>
+    </bpmn2:userTask>
+  </bpmn2:process>
+  <bpmndi:BPMNDiagram>
+    <bpmndi:BPMNPlane bpmnElement="_1.campeonato">
+      <bpmndi:BPMNShape id="Lane_0ra1yv2_di" bpmnElement="Lane_0ra1yv2" isHorizontal="true">
+        <dc:Bounds x="114" y="687" width="1156" height="120" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="shape__4F979076-8A69-49BE-92D4-EB5D036D645B" bpmnElement="_4F979076-8A69-49BE-92D4-EB5D036D645B" isHorizontal="true">
+        <dc:Bounds x="114" y="170" width="1156" height="190" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="shape__4D28481A-88F4-4DB0-AC5E-A5A949FF8FB0" bpmnElement="_4D28481A-88F4-4DB0-AC5E-A5A949FF8FB0" isHorizontal="true">
+        <dc:Bounds x="114" y="360" width="1156" height="190" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_1owesia_di" bpmnElement="Lane_1owesia" isHorizontal="true">
+        <dc:Bounds x="114" y="550" width="1156" height="137" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_07dxfl0_di" bpmnElement="Flow_07dxfl0">
+        <di:waypoint x="1130" y="260" />
+        <di:waypoint x="1172" y="260" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0zadbzs_di" bpmnElement="Flow_0zadbzs">
+        <di:waypoint x="990" y="260" />
+        <di:waypoint x="1030" y="260" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_19yv85r_di" bpmnElement="Flow_19yv85r">
+        <di:waypoint x="850" y="460" />
+        <di:waypoint x="870" y="460" />
+        <di:waypoint x="870" y="260" />
+        <di:waypoint x="890" y="260" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_18xeitp_di" bpmnElement="Flow_18xeitp">
+        <di:waypoint x="690" y="460" />
+        <di:waypoint x="750" y="460" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_13k5mgz_di" bpmnElement="Flow_13k5mgz">
+        <di:waypoint x="530" y="460" />
+        <di:waypoint x="590" y="460" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0eke8vm_di" bpmnElement="Flow_0eke8vm">
+        <di:waypoint x="370" y="460" />
+        <di:waypoint x="430" y="460" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1gqggf2_di" bpmnElement="Flow_1gqggf2">
+        <di:waypoint x="218" y="460" />
+        <di:waypoint x="270" y="460" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_04v9c9e_di" bpmnElement="Flow_04v9c9e">
+        <di:waypoint x="1080" y="300" />
+        <di:waypoint x="1080" y="590" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="shape__FB79674A-D5C2-4630-8226-09C55ABC2449" bpmnElement="_FB79674A-D5C2-4630-8226-09C55ABC2449">
+        <dc:Bounds x="162" y="432" width="56" height="56" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0f6bfg1_di" bpmnElement="Activity_07n3bnr">
+        <dc:Bounds x="270" y="420" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1lz95e6_di" bpmnElement="Activity_1a6xse2">
+        <dc:Bounds x="430" y="420" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1wt5ire_di" bpmnElement="Activity_1kugnw6">
+        <dc:Bounds x="590" y="420" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_09ghc8f_di" bpmnElement="Activity_1euuhzy">
+        <dc:Bounds x="750" y="420" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_109xce7_di" bpmnElement="Activity_1qanhnl">
+        <dc:Bounds x="890" y="220" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0iy80an_di" bpmnElement="Activity_0ae2m10">
+        <dc:Bounds x="1030" y="220" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1gsqbqu_di" bpmnElement="Event_1gsqbqu">
+        <dc:Bounds x="1172" y="242" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0e004d7_di" bpmnElement="Activity_1lkpeq0">
+        <dc:Bounds x="1030" y="590" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+  <bpmn2:relationship type="BPSimData">
+    <bpmn2:extensionElements>
+      <bpsim:BPSimData>
+        <bpsim:Scenario id="default" name="Simulationscenario">
+          <bpsim:ScenarioParameters />
+          <bpsim:ElementParameters elementRef="_FB79674A-D5C2-4630-8226-09C55ABC2449">
+            <bpsim:TimeParameters>
+              <bpsim:ProcessingTime>
+                <bpsim:NormalDistribution mean="0" standardDeviation="0" />
+              </bpsim:ProcessingTime>
+            </bpsim:TimeParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters elementRef="_CDDCF182-BBC1-47DA-90A2-94AD73EE5F91">
+            <bpsim:TimeParameters>
+              <bpsim:ProcessingTime>
+                <bpsim:NormalDistribution mean="0" standardDeviation="0" />
+              </bpsim:ProcessingTime>
+            </bpsim:TimeParameters>
+            <bpsim:ResourceParameters>
+              <bpsim:Availability>
+                <bpsim:FloatingParameter value="0" />
+              </bpsim:Availability>
+              <bpsim:Quantity>
+                <bpsim:FloatingParameter value="0" />
+              </bpsim:Quantity>
+            </bpsim:ResourceParameters>
+            <bpsim:CostParameters>
+              <bpsim:UnitCost>
+                <bpsim:FloatingParameter value="0" />
+              </bpsim:UnitCost>
+            </bpsim:CostParameters>
+          </bpsim:ElementParameters>
+        </bpsim:Scenario>
+      </bpsim:BPSimData>
+    </bpmn2:extensionElements>
+    <bpmn2:source>_tCSx4Ga4ED64ps4FE6RX5Q</bpmn2:source>
+    <bpmn2:target>_tCSx4Ga4ED64ps4FE6RX5Q</bpmn2:target>
+  </bpmn2:relationship>
+</bpmn2:definitions>
