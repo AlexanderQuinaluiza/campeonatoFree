@@ -6,7 +6,7 @@
 
 ### BPMN
 
-Los diagramas pueden ser editados en VSCode con el plugin [bpmn.io](https://marketplace.visualstudio.com/items?itemName=bpmn-io.vs-code-bpmn-io)
+Los diagramas pueden ser editados en Visual Studio Code con el plugin [bpmn.io](https://marketplace.visualstudio.com/items?itemName=bpmn-io.vs-code-bpmn-io)
 
 Para consultar el diagrama de los procesos del proyecto, por favor dirígete a `docs/bpmn` donde encontrarás los archivos en formato [BPMN](https://www.bpmn.org/), detalles:
 
