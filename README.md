@@ -1,6 +1,6 @@
 # campeonatoFree
 
-[![Super-Linter](https://github.com/AlexanderQuinaluiza/campeonatoFree/actions/workflows/linter/badge.svg)](https://github.com/marketplace/actions/super-linter)
+[![Super-Linter](https://github.com/AlexanderQuinaluiza/campeonatoFree/actions/workflows/formato.yaml/badge.svg)](https://github.com/marketplace/actions/super-linter)
 
 ## Documentación
 
