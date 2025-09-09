@@ -5,7 +5,7 @@
   </bpmn2:collaboration>
   <bpmn2:process id="_1.campeonato" name="1. campeonato" processType="Public" isExecutable="true" drools:packageName="com.example" drools:version="1.0" drools:adHoc="false">
     <bpmn2:laneSet>
-      <bpmn2:lane id="_4D28481A-88F4-4DB0-AC5E-A5A949FF8FB0" name="Administrador">
+      <bpmn2:lane id="_4D28481A-88F4-4DB0-AC5E-A5A949FF8FB0" name="Organizador">
         <bpmn2:extensionElements>
           <drools:metaData name="elementname">
             <drools:metaValue>Administrador</drools:metaValue>
@@ -97,9 +97,11 @@
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="shape__4F979076-8A69-49BE-92D4-EB5D036D645B" bpmnElement="_4F979076-8A69-49BE-92D4-EB5D036D645B" isHorizontal="true">
         <dc:Bounds x="114" y="120" width="1036" height="183" />
+        <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="shape__4D28481A-88F4-4DB0-AC5E-A5A949FF8FB0" bpmnElement="_4D28481A-88F4-4DB0-AC5E-A5A949FF8FB0" isHorizontal="true">
         <dc:Bounds x="114" y="302" width="1036" height="248" />
+        <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Flow_0fxobyr_di" bpmnElement="Flow_0fxobyr">
         <di:waypoint x="1000" y="440" />
@@ -167,6 +169,10 @@
       <bpmndi:BPMNShape id="Event_1nc4aqc_di" bpmnElement="Event_1nc4aqc">
         <dc:Bounds x="582" y="342" width="36" height="36" />
       </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1xs5ywk_di" bpmnElement="Activity_1xs5ywk">
+        <dc:Bounds x="670" y="417" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_0byq80d_di" bpmnElement="Activity_0byq80d">
         <dc:Bounds x="740" y="160" width="100" height="80" />
         <bpmndi:BPMNLabel />
@@ -184,10 +190,6 @@
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="TextAnnotation_1at1wna_di" bpmnElement="TextAnnotation_1at1wna">
         <dc:Bounds x="640" y="320" width="100" height="41" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_1xs5ywk_di" bpmnElement="Activity_1xs5ywk">
-        <dc:Bounds x="670" y="417" width="100" height="80" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Association_1u4l15d_di" bpmnElement="Association_1u4l15d">
